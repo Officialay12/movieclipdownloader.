@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>first page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Particles.js Container -->
+    <div id="particles-js"></div>
+
+    <!-- Particles.js Library -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+<style>
+    /* General Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Particles.js Container */
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    z-index: -1;
+}
+
+/* Content Styles */
+.content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: white;
+    padding-top: 20%;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1.5rem;
+}
+</style>
+<script>// Initialize Particles.js
+    particlesJS("particles-js", {
+        particles: {
+            number: {
+                value: 80, // Number of particles
+                density: {
+                    enable: true,
+                    value_area: 800 // Area covered by particles
+                }
+            },
+            color: {
+                value: "#ffffff" // Particle color
+            },
+            shape: {
+                type: "circle", // Particle shape (circle, edge, triangle, polygon, etc.)
+                stroke: {
+                    width: 0,
+                    color: "#000000"
+                },
+                polygon: {
+                    nb_sides: 5
+                }
+            },
+            opacity: {
+                value: 0.5, // Particle opacity
+                random: false,
+                anim: {
+                    enable: false,
+                    speed: 1,
+                    opacity_min: 0.1,
+                    sync: false
+                }
+            },
+            size: {
+                value: 3, // Particle size
+                random: true,
+                anim: {
+                    enable: false,
+                    speed: 40,
+                    size_min: 0.1,
+                    sync: false
+                }
+            },
+            line_linked: {
+                enable: true, // Enable connecting lines
+                distance: 150, // Distance between connected particles
+                color: "#ffffff",
+                opacity: 0.4,
+                width: 1
+            },
+            move: {
+                enable: true, // Enable particle movement
+                speed: 6, // Movement speed
+                direction: "none",
+                random: false,
+                straight: false,
+                out_mode: "bounce", // Behavior when particles move out of canvas
+                bounce: true,
+                attract: {
+                    enable: false,
+                    rotateX: 600,
+                    rotateY: 1200
+                }
+            }
+        },
+        interactivity: {
+            detect_on: "canvas",
+            events: {
+                onhover: {
+                    enable: true, // Enable hover interaction
+                    mode: "repulse" // Hover effect (grab, bubble, repulse, etc.)
+                },
+                onclick: {
+                    enable: true, // Enable click interaction
+                    mode: "push" // Click effect (push, remove, bubble, etc.)
+                },
+                resize: true
+            },
+            modes: {
+                grab: {
+                    distance: 400,
+                    line_linked: {
+                        opacity: 1
+                    }
+                },
+                bubble: {
+                    distance: 400,
+                    size: 40,
+                    duration: 2,
+                    opacity: 8,
+                    speed: 3
+                },
+                repulse: {
+                    distance: 200,
+                    duration: 0.4
+                },
+                push: {
+                    particles_nb: 4
+                },
+                remove: {
+                    particles_nb: 2
+                }
+            }
+        },
+        retina_detect: true
+    });</script>
+      <div class="container">
+        <h1>ARISE!!!</h1>
+        <p>Choose your preferred theme:</p>
+        
+        <!-- Light/Dark Mode Toggle -->
+        <div class="theme-toggle">
+            <button id="lightMode">Light Mode</button>
+            <button id="darkMode">Dark Shadow Mode</button>
+        </div>
+
+        <!-- Custom Color Scheme Selection -->
+        <div class="color-schemes">
+            <p>Or pick a custom color scheme:</p>
+            <div class="color-options">
+                <button class="color-option" data-color="default">Default</button>
+                <button class="color-option" data-color="blue">Blue</button>
+                <button class="color-option" data-color="green">Green</button>
+                <button class="color-option" data-color="purple">Purple</button>
+            </div>
+        </div>
+    </div>
+    <a href="intro2.html"><button class="btn">You done? Now click here</button></a>
+    <script src="script.js"></script>
+    <style>
+        /* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.theme-toggle, .color-schemes {
+    margin: 20px 0;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Light Mode */
+body.light-mode {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+body.light-mode button {
+    background-color: #ddd;
+    color: #333;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: #333;
+    color: #f4f4f4;
+}
+
+body.dark-mode button {
+    background-color: #555;
+    color: #f4f4f4;
+}
+
+/* Custom Color Schemes */
+body.blue-scheme {
+    background-color: #e3f2fd;
+    color: #002df3;
+}
+
+body.blue-scheme button {
+    background-color: #90caf9;
+    color: #011afa;
+}
+
+body.green-scheme {
+    background-color: #e8f5e9;
+    color: #00ff0d;
+}
+
+body.green-scheme button {
+    background-color: #a5d6a7;
+    color: #00ff0d;
+}
+
+body.purple-scheme {
+    background-color: #f3e5f5;
+    color: #9d00ff;
+}
+
+body.purple-scheme button {
+    background-color: #ce93d8;
+    color: #9d00ff;
+}
+    </style>
+<script>
+    // Light/Dark Mode Toggle
+document.getElementById('lightMode').addEventListener('click', () => {
+    document.body.classList.remove('dark-mode', 'blue-scheme', 'green-scheme', 'purple-scheme');
+    document.body.classList.add('light-mode');
+});
+
+document.getElementById('darkMode').addEventListener('click', () => {
+    document.body.classList.remove('light-mode', 'blue-scheme', 'green-scheme', 'purple-scheme');
+    document.body.classList.add('dark-mode');
+});
+
+// Custom Color Scheme Selection
+document.querySelectorAll('.color-option').forEach(button => {
+    button.addEventListener('click', () => {
+        const color = button.getAttribute('data-color');
+        document.body.classList.remove('light-mode', 'dark-mode', 'blue-scheme', 'green-scheme', 'purple-scheme');
+        if (color !== 'default') {
+            document.body.classList.add(`${color}-scheme`);
+        }
+    });
+});
+</script>
+  </body>
+</html>

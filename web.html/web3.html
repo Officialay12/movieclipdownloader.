@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You to Tech Fam</title>
+    <link rel="stylesheet" href="thank-you-styles.css">
+</head>
+<body>
+    <div class="thank-you-container">
+        <div class="animated-text">
+            <span class="thank-you">Thank You</span>
+            <span class="tech-fam"> Tech Fam</span>
+        </div>
+        <div class="back-button">
+            <a href="intro2.html">Back to Home</a>
+        </div>
+    </div>
+    <script src="thank-you-script.js"></script>
+    <style>
+        /* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #9b7b7b, #318eeb, #51ff00, #eed709);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.thank-you-container {
+    text-align: center;
+}
+
+.animated-text {
+    display: inline-block;
+}
+
+.thank-you, .to-tech-fam {
+    font-size: 60px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.8);
+    animation: float 3s ease-in-out infinite;
+}
+
+.thank-you {
+    animation-delay: 0s;
+}
+
+.to-tech-fam {
+    animation-delay: 1.5s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+.back-button {
+    margin-top: 30px;
+}
+
+.back-button a {
+    padding: 10px 20px;
+    font-size: 18px;
+    color: white;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 25px;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.back-button a:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(1.1);
+}
+    </style>
+    <script>
+        // Optional: Add additional interactivity or animations here
+// For example, you can add a confetti effect or sound on page load
+    </script>
+        <!-- Music Controls -->
+        <div class="music-controls">
+            <button id="playPauseButton">Play</button>
+            <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.5">
+        </div>
+    
+        <!-- Audio Element -->
+        <audio id="backgroundMusic" loop>
+            <source src="DJ_Wich_-_Para_siempre_@BaseNaija.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    
+        <script src="script.js"></script>
+    <style>
+        /* General Styles */
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f4f4f4;
+    }
+    
+    .container {
+        text-align: center;
+    }
+    
+    h1 {
+        margin-bottom: 20px;
+    }
+    
+    /* Music Controls */
+    .music-controls {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    button {
+        padding: 10px 20px;
+        background-color: #6a11cb;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    button:hover {
+        background-color: #2575fc;
+    }
+    
+    input[type="range"] {
+        cursor: pointer;
+    }
+     
+    </style>
+    <script>
+        // Get elements
+    const audio = document.getElementById('backgroundMusic');
+    const playPauseButton = document.getElementById('playPauseButton');
+    const volumeSlider = document.getElementById('volumeSlider');
+    
+    // Load saved settings from localStorage
+    const savedVolume = localStorage.getItem('musicVolume');
+    const savedPlayState = localStorage.getItem('musicPlayState');
+    
+    if (savedVolume !== null) {
+        audio.volume = parseFloat(savedVolume);
+        volumeSlider.value = savedVolume;
+    } else {
+        audio.volume = 0.5; // Default volume
+    }
+    
+    if (savedPlayState === 'playing') {
+        playPauseButton.textContent = 'Pause';
+        audio.play();
+    } else {
+        playPauseButton.textContent = 'Play';
+        audio.pause();
+    }
+    
+    // Play/Pause button
+    playPauseButton.addEventListener('click', () => {
+        if (audio.paused) {
+            audio.play();
+            playPauseButton.textContent = 'Pause';
+            localStorage.setItem('musicPlayState', 'playing');
+        } else {
+            audio.pause();
+            playPauseButton.textContent = 'Play';
+            localStorage.setItem('musicPlayState', 'paused');
+        }
+    });
+    
+    // Volume slider
+    volumeSlider.addEventListener('input', () => {
+        audio.volume = volumeSlider.value;
+        localStorage.setItem('musicVolume', volumeSlider.value);
+    });
+    
+    // Autoplay after user interaction
+    document.addEventListener('click', () => {
+        if (audio.paused && localStorage.getItem('musicPlayState') === 'playing') {
+            audio.play();
+        }
+    }, { once: true });
+    </script>
+</body>
+</html>
